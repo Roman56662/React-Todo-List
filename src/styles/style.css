@@ -1,0 +1,16 @@
+@import "~normalize.css";
+
+h1{
+  text-align: center;
+}
+
+.wrapper{
+  padding-top: 5rem;
+  margin: 0 auto;
+  width: 600px;
+}
+
+
+.done{
+  text-decoration: line-through;
+}
