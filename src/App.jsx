@@ -8,6 +8,9 @@ import AddTodo from './Todo/AddTodo.jsx'
 
 function App () {
   const [todos, setTodos] = useState([])
+  const [check, setCheck] = useState([])
+  console.log(check)
+  console.log(todos)
 
 
   function toggleTodo (id) {
@@ -25,11 +28,17 @@ function App () {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
+
   function addTodo(title) {
     setTodos(todos.concat([{
       title,
       id: Date.now(),
       completed: false
+    }]))
+    setCheck(check.concat([{
+      title,
+      id: Date.now(),
+      completed: true
     }]))
   }
 
@@ -37,11 +46,11 @@ function App () {
     <Context.Provider value={{ removeTodo }}>
     <div className='wrapper'>
       <h1>React</h1>
-      <AddTodo onCreate ={addTodo}/>
+      <AddTodo onCreate ={addTodo} todos={todos}/>
       {todos.length ? (
         <TodoList todos={todos} onToggle={toggleTodo}/>
       ) : (
-        <p>No todos!</p>
+        <p>No Todo</p>
       )}
     </div>
     </Context.Provider>

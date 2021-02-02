@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 
 function AddTodo ({onCreate}) {
   const [value, setValue] = useState('')
+ 
 
   function submitHandler(event) {
     event.preventDefault()
@@ -14,13 +15,15 @@ function AddTodo ({onCreate}) {
   }
 
   return (
-    <form action="" style={{marginBottom: '1rem'}} onSubmit={submitHandler}>
+    <div>
       <input type="text" value={value} onChange={event => setValue(event.target.value)}/>
-      <button type="submit">Add todo</button>
-    </form>
+      <button className='add'onClick={submitHandler}>Add todo</button>
+      <button className='showAll'>Show all</button>
+      <button className='showCheck'>Show check</button>
+      <button className='showUncheck'>Show uncheck</button>
+      <button className='showDel'>Show del</button>
+    </div>
   )
 }
-
-
 
 export default AddTodo
